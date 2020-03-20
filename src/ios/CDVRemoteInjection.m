@@ -81,7 +81,11 @@
     }
 
     value = [self settingForKey:@"iosScheme"];
-    _iosScheme = value ;
+    if (value != NULL) {
+        _iosScheme = value ;
+    } else {
+        _iosScheme = NULL ;
+    }
 
     id webView = [self findWebView];
     if ([webView isKindOfClass:[UIWebView class]]) {
