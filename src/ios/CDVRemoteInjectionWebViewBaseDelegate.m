@@ -118,8 +118,16 @@
  */
 - (BOOL) isSupportedURLScheme:(NSString *) scheme
 {
-    if ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"]) {
-        return YES;
+    NSString *value = self.plugin.iosScheme;
+    // NSLog(@"iosScheme %@",value);
+    if (value != NULL) {
+         if ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"] || [scheme isEqualToString:value]) {
+            return YES;
+        }
+    }else{
+        if ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"]) {
+            return YES;
+        }
     }
     
     NSLog(@"Unsupported scheme for cordova injection: '%@'.  Skipping.", scheme);

@@ -80,6 +80,9 @@
         _showConnectionErrorDialog = YES;
     }
 
+    value = [self settingForKey:@"iosScheme"];
+    _iosScheme = value ;
+
     id webView = [self findWebView];
     if ([webView isKindOfClass:[UIWebView class]]) {
         NSLog(@"Found UIWebView");

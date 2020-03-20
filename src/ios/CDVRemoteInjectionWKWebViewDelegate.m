@@ -76,10 +76,11 @@
     [self cancelRequestTimer];
     
     NSString *scheme = webView.URL.scheme;
+    NSString *value = self.plugin.iosScheme;
 
     if ([self isSupportedURLScheme:scheme]) {
         [webView evaluateJavaScript:[self buildInjectionJS] completionHandler:^(id id, NSError *error){
-            if (error) {
+            if (value==NULL&&error) {
                 // Nothing to do here other than log the error.
                 NSLog(@"Error when injecting javascript into WKWebView: '%@'.", error);
             }
