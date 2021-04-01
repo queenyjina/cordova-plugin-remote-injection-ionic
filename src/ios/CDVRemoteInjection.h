@@ -17,10 +17,6 @@ From CRIShowConnectionErrorDialog preference.  Defaults to true.  False if prefe
 is set to 0.
  */
 @property (readonly) BOOL showConnectionErrorDialog;
-/*
-ionic Custome Scheme Support.
- */
-@property (readonly) NSString *iosScheme;
     
 - (id) findWebView;
 @end
